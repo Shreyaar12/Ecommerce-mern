@@ -21,6 +21,7 @@ main {
     overflow: hidden; /* Hide overflow content */
     text-overflow: ellipsis; /* Add ellipsis for long text */
     white-space: nowrap; /* Prevent wrapping */
+    /* sare same size k rahenge no matter the text */
   }
   
   table td,
