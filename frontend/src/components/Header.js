@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navbar, Nav, Container, NavbarCollapse } from 'react-bootstrap';
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
+import logo from '../assets/logo.png'
 const Header = () => {
   return (
 <header>
@@ -8,7 +9,8 @@ const Header = () => {
 {/* lg will help hamburger menu show up , md will not show hamburger menu until you go smaller*/}
 
 <Container>
-    <Navbar.Brand href="/" > Ecomm hub</Navbar.Brand>
+    <Navbar.Brand href="/" >
+        <img src={logo} alt="proshop" /> Ecomm hub</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id='basic-navbar-nav'>
         <Nav className="ms-auto">
