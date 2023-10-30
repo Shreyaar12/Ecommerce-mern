@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './components/Header';
 import { Container } from 'react-bootstrap';
+import HomeScreen from './screens/HomeScreen';
 
 const App = () => {
   return (
@@ -9,8 +10,7 @@ const App = () => {
     <main className="py-3">
       {/* py 3 is padding on the y axis on top and bottom  */}
       <Container>
-      <h1>Welcome to my ecomm</h1>
-
+      <HomeScreen />
       </Container>
 
 
