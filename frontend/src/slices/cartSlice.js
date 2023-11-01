@@ -1,6 +1,6 @@
 //no need to use api so cartSlice function
 import { createSlice } from '@reduxjs/toolkit';
-import { updateCart } from '../utils/cartUtils';
+import { updateCart } from '../utils/cartUtil.js';
 
 const initialState = localStorage.getItem('cart')
   ? JSON.parse(localStorage.getItem('cart'))
