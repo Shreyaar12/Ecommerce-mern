@@ -23,7 +23,7 @@ const Rating = ({value, text}) => {
     {value >=5? <FaStar /> :value >= 4.5 ? <FaStarHalfAlt />: <FaRegStar />}
     
 </span>
-
+<span className="rating-text">{text ? text:null}</span>
     </div>
   )
 }
