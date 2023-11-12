@@ -3,18 +3,6 @@ export const addDecimals = (num) => {
   };
   
 export const updateCart = (state, item) => {
-    // Check if the item is already in the cart
-    const existItem = state.cartItems.find((x) => x._id === item._id);
-  
-    if (existItem) {
-      // If exists, update quantity
-      state.cartItems = state.cartItems.map((x) =>
-        x._id === existItem._id ? item : x
-      );
-    } else {
-      // If not exists, add new item to cartItems
-      state.cartItems = [...state.cartItems, item];
-    }
   
     // Calculate the items price
     state.itemsPrice = addDecimals(
