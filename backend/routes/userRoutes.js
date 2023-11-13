@@ -1,6 +1,7 @@
 import express from "express";
+import { protect, admin } from '../middleware/authMiddleware.js';
 
- import {authUser,
+import {authUser,
     registerUser,
     logoutUser,
     getUserProfile,
@@ -11,10 +12,17 @@ import express from "express";
     updateUser} from '../controllers/userController.js';
 const router= express.Router();
 //everything connected to /api/users
-router.route('/').post(registerUser).get(getUsers);
+router.route('/').post(registerUser).get(protect, admin, getUsers);
 router.post('/auth', authUser); //kahi jana ni h bas logout hona h 
-router.post('/login',authUser);
-router.route('/profile').get(getUserProfile).put(updateUserProfile);
-router.route('/:id').delete(deleteUser).get(getUserById).put(updateUser);
+router
+  .route('/profile')
+  .get(protect, getUserProfile)
+  .put(protect, updateUserProfile);
+router
+  .route('/:id')
+  .delete(protect, admin, deleteUser)
+  .get(protect, admin, getUserById)
+  .put(protect, admin, updateUser);
+
 
 export default router;
