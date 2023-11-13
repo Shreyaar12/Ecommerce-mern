@@ -14,6 +14,7 @@ const router= express.Router();
 //everything connected to /api/users
 router.route('/').post(registerUser).get(protect, admin, getUsers);
 router.post('/auth', authUser); //kahi jana ni h bas logout hona h 
+router.post('/logout', logoutUser);
 router
   .route('/profile')
   .get(protect, getUserProfile)
