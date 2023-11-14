@@ -6,7 +6,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
     login: builder.mutation({
         //we r enot just fetching data we re authenticating its a post req so mutation not query
       query: (data) => ({
-        url: USERS_URL / auth,
+        url: `${USERS_URL}/auth`,
         method : 'POST',
         body: data,
       }),
