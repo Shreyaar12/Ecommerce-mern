@@ -20,6 +20,7 @@ import CartScreen from './screens/CartScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import ShippingScreen from './screens/ShippingScreen';
+import PrivateRoute from './components/PrivateRoute';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -31,8 +32,11 @@ const router= createBrowserRouter(
      <Route path='/cart' element={<CartScreen />} />
      <Route path='/login' element={<LoginScreen />} />
      <Route path='/register' element={<RegisterScreen />} />
-     <Route path='/shipping' element={<ShippingScreen />} />
+<Route path="" element={<PrivateRoute/>}>
+  {/* only access once logged in  */}
+<Route path='/shipping' element={<ShippingScreen />} />
 
+</Route>
 
     </Route>
   )
