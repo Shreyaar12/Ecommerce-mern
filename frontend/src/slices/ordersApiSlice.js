@@ -12,8 +12,15 @@ endpoints:(builder)=> ({
             method: 'POST',
             body:{...order}
         }),
-    })
+    }),
+    getOrderDetails: builder.query({
+        // fetch order detaisl from mongodb
+        query: (id) => ({
+          url: `${ORDERS_URL}/${id}`,
+        }),
+        keepUnusedDataFor: 5,
+      }),
 })
 }) 
 
-export const {useCreateOrderMutation} = ordersApiSlice;
+export const {useCreateOrderMutation, useGetOrderDetailsQuery} = ordersApiSlice;
