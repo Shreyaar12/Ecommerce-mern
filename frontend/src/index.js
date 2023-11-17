@@ -24,6 +24,8 @@ import PrivateRoute from './components/PrivateRoute';
 import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
+import AdminRoute from './components/AdminRoute';
+import OrderListScreen from './screens/admin/OrderListScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import {PayPalScriptProvider} from '@paypal/react-paypal-js'
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -43,6 +45,12 @@ const router= createBrowserRouter(
 <Route path='/placeorder' element={<PlaceOrderScreen />} />
 <Route path='/order/:id' element={<OrderScreen />} />
 <Route path='/profile' element={<ProfileScreen />} />
+
+</Route>
+<Route path="" element={<PrivateRoute/>}>
+  {/* only access once logged in  */}
+<Route path='/admin/orderlist' element={<OrderListScreen />} />
+
 
 </Route>
 
