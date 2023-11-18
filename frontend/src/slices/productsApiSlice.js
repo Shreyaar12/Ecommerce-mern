@@ -10,6 +10,7 @@ export const productsApiSlice = apiSlice.injectEndpoints({
       }),
       keepUnusedDataFor: 5,
       providesTags: ['Products'],
+      //new details leke aega provides
     }),
     getProductDetails: builder.query({
       query: (productId) => ({
@@ -31,6 +32,7 @@ export const productsApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
       invalidatesTags: ['Products'],
+      //gets rid of any cached details of the product
     }),
     uploadProductImage: builder.mutation({
       query: (data) => ({
@@ -53,6 +55,7 @@ export const productsApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
       invalidatesTags: ['Product'],
+      //it ll update automatically after creating review without reloading
     }),
     getTopProducts: builder.query({
       query: () => `${PRODUCTS_URL}/top`,

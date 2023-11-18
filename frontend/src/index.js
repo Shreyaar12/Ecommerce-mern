@@ -23,6 +23,7 @@ import ShippingScreen from './screens/ShippingScreen';
 import PrivateRoute from './components/PrivateRoute';
 import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import ProductEditScreen from './screens/admin/ProductEditScreen';
 import OrderScreen from './screens/OrderScreen';
 import ProductListScreen from './screens/admin/ProductListScreen';
 import AdminRoute from './components/AdminRoute';
@@ -52,6 +53,8 @@ const router= createBrowserRouter(
   {/* only access once logged in  */}
   <Route path='/admin/orderlist' element={<OrderListScreen />} />
   <Route path='/admin/productlist' element={<ProductListScreen />} />
+
+  <Route path='/admin/product/:id/edit' element={<ProductEditScreen />} />
 
 
 </Route>
