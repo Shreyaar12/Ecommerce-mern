@@ -4,12 +4,11 @@ import { FaEdit, FaTrash } from "react-icons/fa"
 import Message from "../../components/Message"
 import { toast } from 'react-toastify';
 import Loader from "../../components/Loader"
-import { useGetProductsQuery, useCreateProductMutation, } from "../../slices/productsApiSlice"
+import { useGetProductsQuery, useCreateProductMutation,   useDeleteProductMutation,} from "../../slices/productsApiSlice"
 const ProductListScreen = () => {
  const {data:products, isLoading, error, refetch} = useGetProductsQuery();
 
- const deleteHandler=()=>{
- console.log('delete');}
+
  const [createProduct, { isLoading: loadingCreate }] =
     useCreateProductMutation();
 
@@ -23,6 +22,19 @@ const ProductListScreen = () => {
       }
     }
   };
+  const [deleteProduct,{isLoading:loadingDelete}] =useDeleteProductMutation();
+ 
+ 
+  const deleteHandler = async(id) =>{
+    if(window.confirm('Are you sure')){
+      try{await deleteProduct(id);
+      refetch();
+    } catch(err){
+      toast.error(err?.data?.message || err.error);
+    }
+    }
+  };
+
   return (
    <>
 <Row className="align-items-center">
@@ -37,6 +49,7 @@ const ProductListScreen = () => {
     </Col>
 </Row>
 {loadingCreate && <Loader />}
+{loadingDelete && <Loader />}
 {isLoading ? (
 
     <Loader/>
