@@ -99,8 +99,7 @@ error?(
         </Form.Control>
             </Form.Group>
 
-          
-
+        
 
             <Form.Group controlId ='price'>
         <Form.Label> Price</Form.Label>
