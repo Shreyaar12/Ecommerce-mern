@@ -1,4 +1,5 @@
 import { Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useGetProductsQuery } from '../slices/productsApiSlice';
 import Product from '../components/Product';
@@ -12,7 +13,7 @@ const HomeScreen = () => {
 
   return (
     <>
-    {!!keyword ? <ProductCarousel /> :(
+    {!keyword ? <ProductCarousel /> :(
       <Link to='/' className='btn btn-light mb-4'>Go back</Link>
     )}
       {isLoading ? (
