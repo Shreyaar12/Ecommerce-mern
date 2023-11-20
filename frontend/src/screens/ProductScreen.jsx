@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import Meta from '../components/Meta';
 import { Form, Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
 import {
   useGetProductDetailsQuery,
@@ -63,6 +64,7 @@ const ProductScreen = () => {
         <Message variant='danger'>{error?.data.message || error.error}</Message>
         ) : (
         <>
+        <Meta title={product.name} description={product.description} />
           <Row>
             <Col md={6}>
               <Image src={product.image} alt={product.name} fluid />

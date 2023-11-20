@@ -29,6 +29,7 @@ import ProductListScreen from './screens/admin/ProductListScreen';
 import AdminRoute from './components/AdminRoute';
 import OrderListScreen from './screens/admin/OrderListScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import {HelmetProvider} from'react-helmet-async';
 import UserEditScreen from './screens/admin/UserEditScreen';
 import UserListScreen from './screens/admin/UserListScreen';
 import {PayPalScriptProvider} from '@paypal/react-paypal-js'
@@ -75,6 +76,7 @@ const router= createBrowserRouter(
 
 root.render(
   <React.StrictMode>
+    <HelmetProvider>
     <Provider store={store}>
       <PayPalScriptProvider deferLoading={true}>
       <RouterProvider router={router} />
@@ -82,6 +84,7 @@ root.render(
    
 {/* wrap routerprovider in store */}
     </Provider>
+    </HelmetProvider>
   </React.StrictMode>
 );
 reportWebVitals();
