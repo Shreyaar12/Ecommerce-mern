@@ -8,11 +8,11 @@ import SearchBox from './SearchBox';
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import { logout } from '../slices/authSlice';
 import {LinkContainer } from 'react-router-bootstrap';
+import { resetCart } from '../slices/cartSlice';
+
 const Header = () => {
    const { cartItems} = useSelector((state)=> state.cart);
    const { userInfo } = useSelector((state) => state.auth);
-
-
    const dispatch = useDispatch();
    const navigate = useNavigate();
    const [ logoutApiCall] = useLogoutMutation();
@@ -20,10 +20,12 @@ const Header = () => {
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
+      dispatch(resetCart());
       navigate('/login');
     } catch (err) {
       console.error(err);
-    }}
+    }
+  }
   return (
 <header>
 <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect> 
